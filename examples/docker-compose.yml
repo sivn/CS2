@@ -1,10 +1,11 @@
 version: '3.7'
 services:
   cs2-server:
-    image: joedwards32/cs2
+    image: sivn/cs2
     container_name: cs2-dedicated
     environment:
-      # Server configuration
+      # Server configuration 
+      - CS2_SERVERKEY=changeme      # (https://steamcommunity.com/dev/managegameservers needed for online play)
       - CS2_SERVERNAME=changeme     # (Set the visible name for your private server)
       - CS2_PORT=27015              # (CS2 server listen port tcp_udp)
       - CS2_RCON_PORT               # (Optional, use a simple TCP proxy to have RCON listen on an alternative port. Useful for services like AWS Fargate which do not support mixed protocol ports.)

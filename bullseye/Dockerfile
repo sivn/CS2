@@ -6,12 +6,11 @@
 
 FROM cm2network/steamcmd:root as build_stage
 
-LABEL maintainer="joedwards32@gmail.com"
+LABEL maintainer="mail@sivn.de"
 
 ENV STEAMAPPID 730
 ENV STEAMAPP cs2
 ENV STEAMAPPDIR "${HOMEDIR}/${STEAMAPP}-dedicated"
-ENV CFG_URL https://raw.githubusercontent.com/joedwards32/CS2/settings.tgz
 
 COPY etc/entry.sh "${HOMEDIR}/entry.sh"
 COPY etc/server.cfg "/etc/server.cfg"
@@ -39,6 +38,7 @@ RUN set -x \
 FROM build_stage AS bullseye-base
 
 ENV CS2_SERVERNAME="cs2 private server" \
+    CS2_SERVERKEY="changeme" \
     CS2_IP=0.0.0.0 \
     CS2_PORT=27015 \
     CS2_RCON_PORT="" \
@@ -74,6 +74,6 @@ WORKDIR ${HOMEDIR}
 CMD ["bash", "entry.sh"]
 
 # Expose ports
-EXPOSE 27015/tcp \
+EXPOSE  27015/tcp \
 	27015/udp \
 	27020/udp

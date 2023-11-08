@@ -1,4 +1,5 @@
-[![Docker Image CI](https://github.com/joedwards32/CS2/actions/workflows/docker-image.yml/badge.svg?branch=main)](https://github.com/joedwards32/CS2/actions/workflows/docker-image.yml) [![Docker Build and Publish](https://github.com/joedwards32/CS2/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/joedwards32/CS2/actions/workflows/docker-publish.yml)
+
+# THE WHOLE THING BELONGS TO https://github.com/joedwards32 I JUST ADDED THE SERVER KEY
 
 # What is Counter-Strike 2?
 For over two decades, Counter-Strike has offered an elite competitive experience, one shaped by millions of players from across the globe. And now the next chapter in the CS story is about to begin. This is Counter-Strike 2. 
@@ -23,7 +24,7 @@ $ chmod 777 $(pwd)/cs2-data # Makes sure the directory is writeable by the unpri
 $ docker run -d --name=cs2 -v $(pwd)/cs2-data:/home/steam/cs2-dedicated/ -p 27015:27015 -p 27020:27020 joedwards32/cs2
 ```
 
-or using docker-compose, see [examples](https://github.com/joedwards32/CS2/blob/main/examples/docker-compose.yml):
+or using docker-compose, see [examples](https://github.com/sivn/CS2/blob/main/examples/docker-compose.yml):
 ```console
 # Remember to update passwords in your compose file
 $ docker compose --file examples/docker-compose.yml up -d cs2-server
@@ -49,7 +50,8 @@ Feel free to overwrite these environment variables, using -e (--env):
 ### Server Configuration
 
 ```dockerfile
-CS2_SERVERNAME="changeme"   (Set the visible name for your private server)
+CS2_SERVERNAME="changeme"   (https://steamcommunity.com/dev/managegameservers needed for online play)
+CS2_SERVERKEY="changeme"    (Set the visible name for your private server)
 CS2_IP=""                   (CS2 server listening IP address, 0.0.0.0 - all IP addresses on the local machine, empty - IP identified automatically)
 CS2_PORT=27015              (CS2 server listen port tcp_udp)
 CS2_RCON_PORT=""            (Optional, use a simple TCP proxy to have RCON listen on an alternative port.

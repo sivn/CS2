@@ -18,7 +18,7 @@ ln -sfT ${STEAMCMDDIR}/linux64/steamclient.so ~/.steam/sdk64/steamclient.so
 cp /etc/server.cfg "${STEAMAPPDIR}"/game/csgo/cfg/server.cfg
 sed -i -e "s/{{SERVER_HOSTNAME}}/${CS2_SERVERNAME}/g" \
        -e "s/{{SERVER_PW}}/${CS2_PW}/g" \
-       -e "s/{{SERVER_KEY}}/${CS2_KEY}/g" \
+       -e "s/{{SERVER_KEY}}/${CS2_SERVERKEY}/g" \
        -e "s/{{SERVER_RCON_PW}}/${CS2_RCONPW}/g" \
        -e "s/{{TV_ENABLE}}/${TV_ENABLE}/g" \
        -e "s/{{TV_PORT}}/${TV_PORT}/g" \
@@ -88,7 +88,7 @@ eval "./cs2" -dedicated \
         +map "${CS2_STARTMAP}" \
         +rcon_password "${CS2_RCONPW}" \
         +sv_password "${CS2_PW}" \
-        +sv_setsteamaccount "${CS2_KEY}" \
+        +sv_setsteamaccount "${CS2_SERVERKEY}" \
         +sv_lan "${CS2_LAN}" \
         "${CS2_ADDITIONAL_ARGS}"
 
